@@ -1,0 +1,4 @@
+- [ ] Api gateway Node.js
+- [ ] Autencicação
+- [ ] Gerente
+- [ ] Cliente
