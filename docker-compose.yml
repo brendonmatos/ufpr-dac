@@ -4,8 +4,18 @@ services:
     build: ./api-gateway
     environment: 
       - PORT=8080
+      - CLIENTES_SERVICE=http://clientes-service:3000
     ports:
       - "8080:8080"
+    networks:
+      - bantads-net
+  clientes-service: 
+    build: ./clientes-service
+    environment: 
+      - SERVER_PORT=3000
+      - SERVER_SERVLET_CONTEXT_PATH=/api/v1/clientes
+    networks:
+      - bantads-net
   rabbitmq:
     image: rabbitmq:3-management-alpine
     container_name: 'rabbitmq'
