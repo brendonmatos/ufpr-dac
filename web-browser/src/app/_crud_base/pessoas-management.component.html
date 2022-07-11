@@ -1,0 +1,61 @@
+<mat-card>
+    <mat-card-title>
+        Criar Pessoa
+    </mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="pessoaInput">
+            <div>
+                <mat-form-field appearance="standard" class="w-full">
+                    <mat-label>Nome</mat-label>
+                    <input matInput formControlName="nome" placeholder="Nome">
+                </mat-form-field>
+
+                <mat-form-field appearance="standard" class="w-full">
+                    <mat-label>Idade</mat-label>
+                    <textarea matInput formControlName="idade" placeholder="Idade">
+                </textarea>
+                </mat-form-field>
+
+                <button mat-button mat-flat-button color="primary" (click)="createPessoa()" class="w-full">
+                    Criar
+                </button>
+            </div>
+        </form>
+    </mat-card-content>
+
+</mat-card>
+
+<table mat-table [dataSource]="pessoasList">
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>Id</th>
+        <td mat-cell *matCellDef="let element">{{element.id}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef>Nome</th>
+        <td mat-cell *matCellDef="let element">{{element.nome}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="idade">
+        <th mat-header-cell *matHeaderCellDef>Idade</th>
+        <td mat-cell *matCellDef="let element">{{element.idade}}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>-</th>
+        <td mat-cell *matCellDef="let element">
+            <!-- {{element.id}} -->
+
+            <button mat-button mat-flat-button color="danger" (click)="deletePessoa(element.id)" class="w-full">
+                Remover
+            </button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
