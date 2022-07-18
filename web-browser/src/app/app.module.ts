@@ -9,10 +9,16 @@ import { MatCardModule } from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AdminComponent } from './admin/admin.component';
+import { ManagerComponent } from './manager/manager.component';
+import { CustomerComponent } from './customer/customer.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AdminComponent,
+    ManagerComponent,
+    CustomerComponent
   ],
   imports: [
     BrowserModule,
