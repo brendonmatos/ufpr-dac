@@ -24,9 +24,6 @@ app.get('api/v1/cliente/cadastro', async (req, res) => {
         salario: yup.number().required(),
     })
 
-
-
-
     const cliente = await clienteSchema.validate(req.body)
 
     const conta = {
